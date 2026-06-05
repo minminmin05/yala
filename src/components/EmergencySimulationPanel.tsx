@@ -145,7 +145,7 @@ export default function EmergencySimulationPanel({
         <div className="bg-[#0a0a0a] border border-[#222] rounded-sm p-3">
           <div className="flex justify-between items-center mb-1">
             <span className="text-[10px] font-mono font-bold text-slate-400">GRID_OUTAGE_RISK:</span>
-            <span className="text-xs font-mono font-bold text-pink-400">
+            <span className="text-xs font-mono font-bold text-red-400">
               {simulationState.pumpFailureRate}% risk
             </span>
           </div>
@@ -156,7 +156,7 @@ export default function EmergencySimulationPanel({
             step="10"
             value={simulationState.pumpFailureRate}
             onChange={(e) => onUpdateSimulation({ pumpFailureRate: parseInt(e.target.value) })}
-            className="w-full accent-pink-500 h-1 bg-[#111] rounded-none appearance-none cursor-pointer"
+            className="w-full accent-red-500 h-1 bg-[#111] rounded-none appearance-none cursor-pointer"
           />
           <div className="flex justify-between text-[8px] font-mono text-[#666] mt-1.5 uppercase">
             <span>MAINTAINED (0%)</span>
@@ -219,7 +219,7 @@ export default function EmergencySimulationPanel({
  
       {/* Distress Signal SOS Spawning Form */}
       <div className="bg-[#0a0a0a] border border-[#222] rounded-sm p-3.5 shadow-xl">
-        <h5 className="text-[10px] font-mono font-bold uppercase tracking-wider text-pink-400 border-b border-[#222] pb-1.5 mb-2.5 flex items-center gap-1.5">
+        <h5 className="text-[10px] font-mono font-bold uppercase tracking-wider text-red-400 border-b border-[#222] pb-1.5 mb-2.5 flex items-center gap-1.5">
           <span>🚨</span> TACTICAL_SOS_SPAWNER
         </h5>
  
@@ -230,7 +230,7 @@ export default function EmergencySimulationPanel({
               <select
                 value={coordsOption}
                 onChange={(e) => setCoordsOption(e.target.value as any)}
-                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-pink-600 text-[11px]"
+                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-red-600 text-[11px]"
               >
                 <option value="c1">ชุมชนเวฬุวัน-วิเวกโกลก</option>
                 <option value="c2">ชุมชนเสาธงทอง (ตลาดเก่า)</option>
@@ -246,7 +246,7 @@ export default function EmergencySimulationPanel({
                 required
                 value={sosPhone}
                 onChange={(e) => setSosPhone(e.target.value)}
-                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-pink-600 text-[11px] font-mono"
+                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-red-600 text-[11px] font-mono"
               />
             </div>
           </div>
@@ -259,7 +259,7 @@ export default function EmergencySimulationPanel({
                 required
                 value={sosMessage}
                 onChange={(e) => setSosMessage(e.target.value)}
-                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-pink-600 text-[11px]"
+                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-red-600 text-[11px]"
               />
             </div>
  
@@ -271,14 +271,14 @@ export default function EmergencySimulationPanel({
                 max="25"
                 value={sosVulnerable}
                 onChange={(e) => setSosVulnerable(parseInt(e.target.value) || 1)}
-                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-pink-600 font-mono"
+                className="bg-[#111] text-slate-100 border border-[#222] p-2 rounded-sm focus:outline-none focus:border-red-600 font-mono"
               />
             </div>
           </div>
  
           <button
             type="submit"
-            className="w-full py-2 bg-pink-600 hover:bg-pink-700 text-white font-mono font-bold text-[10px] uppercase rounded-sm transition-transform active:scale-95 flex items-center justify-center gap-1.5 text-center cursor-pointer shadow-lg shadow-pink-950/20 mt-1"
+            className="w-full py-2 bg-red-600 hover:bg-red-700 text-white font-mono font-bold text-[10px] uppercase rounded-sm transition-transform active:scale-95 flex items-center justify-center gap-1.5 text-center cursor-pointer shadow-lg shadow-red-950/20 mt-1"
           >
             <PlusCircle className="h-3.5 w-3.5" />
             INJECT_ACTIVE_SOS_TICKET
@@ -288,4 +288,3 @@ export default function EmergencySimulationPanel({
     </div>
   );
 }
-

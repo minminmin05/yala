@@ -17,7 +17,7 @@ export default function AIInsightsPanel({ analysis }: AIInsightsPanelProps) {
 
   if (severity === FloodSeverity.CRITICAL) {
     ringColor = "stroke-rose-500 text-rose-400";
-    bgGradient = "from-rose-950/30 via-pink-950/10 to-slate-950";
+    bgGradient = "from-rose-950/30 via-red-950/10 to-slate-950";
     badgeColor = "bg-rose-950 text-rose-400 border-rose-800 animate-pulse";
     iconComponent = <BadgeAlert className="h-5 w-5 text-rose-500 animate-bounce" />;
   } else if (severity === FloodSeverity.WARNING) {
@@ -169,4 +169,3 @@ export default function AIInsightsPanel({ analysis }: AIInsightsPanelProps) {
     </div>
   );
 }
-
