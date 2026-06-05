@@ -270,12 +270,12 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#e0e0e0] flex flex-col font-sans transition-all selection:bg-red-500/30 selection:text-white">
+    <div className="min-h-screen bg-[#050505] text-[#e0e0e0] flex flex-col font-sans transition-all selection:bg-pink-500/30 selection:text-white">
       
       {/* Tactical Operation Center Branding Header (TACTICAL INDUSTRIAL THEME) */}
       <header className="border-b border-[#222] bg-[#0a0a0a] px-6 h-14 flex flex-wrap items-center justify-between gap-4 select-none">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-red-600 rounded-sm flex items-center justify-center shrink-0">
+          <div className="w-8 h-8 bg-pink-600 rounded-sm flex items-center justify-center shrink-0">
             <div className="w-4 h-4 border-2 border-white animate-pulse"></div>
           </div>
           <div>
@@ -311,10 +311,10 @@ export default function App() {
             <div className="relative">
               <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
                 <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                  calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "bg-red-500" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "bg-amber-500" : "bg-emerald-500"
+                  calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "bg-pink-500" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "bg-amber-500" : "bg-emerald-500"
                 }`} />
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${
-                  calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "bg-red-500" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "bg-amber-500" : "bg-emerald-500"
+                  calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "bg-pink-500" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "bg-amber-500" : "bg-emerald-500"
                 }`} />
               </span>
               <Activity className="h-3.5 w-3.5 text-[#666]" />
@@ -322,7 +322,7 @@ export default function App() {
             <div className="text-left font-mono select-none">
               <span className="text-[8px] text-[#666] uppercase font-bold block leading-none">RISK INDEX</span>
               <span className={`text-[11px] font-bold mt-1 block leading-none ${
-                calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "text-red-400" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "text-amber-400" : "text-emerald-400"
+                calculatedAnalysis.severity === FloodSeverity.CRITICAL ? "text-pink-400" : calculatedAnalysis.severity === FloodSeverity.WARNING ? "text-amber-400" : "text-emerald-400"
               }`}>
                 {calculatedAnalysis.severity} ({calculatedAnalysis.riskScore}%)
               </span>
@@ -388,11 +388,11 @@ export default function App() {
 
                   {selectedCommunity && (
                     <div className="text-[11px] space-y-1 font-mono">
-                      <h4 className="font-bold text-red-400 text-xs">{selectedCommunity.name}</h4>
+                      <h4 className="font-bold text-pink-400 text-xs">{selectedCommunity.name}</h4>
                       <p className="text-[#666] font-sans">Type: At-risk Residential Zone</p>
                       <div className="h-px bg-[#222] my-1"/>
                       <div className="flex justify-between"><span>Vulnerable pop:</span> <strong className="text-white">{selectedCommunity.vulnerablePopCount} people</strong></div>
-                      <div className="flex justify-between"><span>Flood risk index:</span> <strong className="text-red-400">{selectedCommunity.floodRiskScore}%</strong></div>
+                      <div className="flex justify-between"><span>Flood risk index:</span> <strong className="text-pink-400">{selectedCommunity.floodRiskScore}%</strong></div>
                       <div className="flex justify-between"><span>Water status:</span> <strong>{selectedCommunity.isFlooded ? "CRITICAL FLOODING" : "STABLE"}</strong></div>
                     </div>
                   )}
@@ -402,7 +402,7 @@ export default function App() {
                       <h4 className="font-bold text-sky-400 text-xs">{selectedStation.name}</h4>
                       <p className="text-[#666] font-sans">Type: Active Drainage Pump Gateway</p>
                       <div className="h-px bg-[#222] my-1"/>
-                      <div className="flex justify-between"><span>Operational state:</span> <strong className={selectedStation.operationalStatus === "ACTIVE" ? "text-emerald-400" : "text-red-400 animate-pulse"}>{selectedStation.operationalStatus}</strong></div>
+                      <div className="flex justify-between"><span>Operational state:</span> <strong className={selectedStation.operationalStatus === "ACTIVE" ? "text-emerald-400" : "text-pink-400 animate-pulse"}>{selectedStation.operationalStatus}</strong></div>
                       <div className="flex justify-between"><span>Active motors:</span> <strong className="text-white">{selectedStation.activePumpCount} / {selectedStation.totalPumpCount} units</strong></div>
                       <div className="flex justify-between"><span>Discharge volume:</span> <strong className="text-sky-300">{selectedStation.dischargeRate.toFixed(2)} m³/s</strong></div>
                     </div>
@@ -414,7 +414,7 @@ export default function App() {
                       <p className="text-[#666] font-sans">Type: Water telemetry gauge</p>
                       <div className="h-px bg-[#222] my-1"/>
                       <div className="flex justify-between"><span>Water Level MSL:</span> <strong className="text-white">{selectedSensor.waterLevelMsl.toFixed(2)} m</strong></div>
-                      <div className="flex justify-between"><span>Critical margin:</span> <strong className="text-red-400">{selectedSensor.criticalThresholdMsl.toFixed(2)} m</strong></div>
+                      <div className="flex justify-between"><span>Critical margin:</span> <strong className="text-pink-400">{selectedSensor.criticalThresholdMsl.toFixed(2)} m</strong></div>
                       <div className="flex justify-between"><span>24h Rainfall:</span> <strong className="text-sky-400 font-bold">{selectedSensor.rainfall24h.toFixed(1)} mm</strong></div>
                     </div>
                   )}
@@ -436,7 +436,7 @@ export default function App() {
                       </div>
                       <h4 className="font-bold text-sm text-white">PROVINCE: {selectedProvince.properties.name_th}</h4>
                       <div className="h-px bg-[#222] my-1"/>
-                      <div className="flex justify-between"><span>Disaster risk:</span> <strong className="text-red-400">{selectedProvince.properties.riskScore}%</strong></div>
+                      <div className="flex justify-between"><span>Disaster risk:</span> <strong className="text-pink-400">{selectedProvince.properties.riskScore}%</strong></div>
                       <div className="flex justify-between"><span>At-risk spots:</span> <strong className="text-white">{selectedProvince.properties.vulnerableCommunitiesCount} areas</strong></div>
                       <div className="flex justify-between"><span>Live sensors:</span> <strong className="text-emerald-400">{selectedProvince.properties.activeSensors} stations</strong></div>
                       <div className="flex justify-between"><span>Drain stations:</span> <strong className="text-sky-300">{selectedProvince.properties.pumpsOnline} blocks</strong></div>
@@ -457,11 +457,11 @@ export default function App() {
               onClick={() => setActiveTab("control")}
               className={`flex-1 py-3 text-center text-xs font-bold font-mono transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "control"
-                  ? "border-b-2 border-red-500 bg-[#050505] text-white"
+                  ? "border-b-2 border-pink-500 bg-[#050505] text-white"
                   : "text-[#666] hover:text-[#e0e0e0] hover:bg-[#0c0c0c]"
               }`}
             >
-              <Activity className="h-3.5 w-3.5 text-red-500" />
+              <Activity className="h-3.5 w-3.5 text-pink-500" />
                ศูนย์บัญชาการภัย
             </button>
             <button
@@ -550,3 +550,4 @@ export default function App() {
     </div>
   );
 }
+

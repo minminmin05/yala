@@ -218,7 +218,7 @@ export default function MapDashboard({
             <div class="text-[11px] space-y-1 text-slate-300">
               <div class="flex justify-between"><span>พิกัดทางภูมิศาสตร์:</span> <span class="font-mono text-white">${com.coordinates[0].toFixed(4)}, ${com.coordinates[1].toFixed(4)}</span></div>
               <div class="flex justify-between"><span>กลุ่มเปราะบาง:</span> <span class="text-amber-400 font-bold">${com.vulnerablePopCount} ราย</span></div>
-              <div class="flex justify-between"><span>Flood Risk:</span> <span class="font-bold ${com.floodRiskScore >= 80 ? 'text-red-400' : 'text-emerald-400'}">${com.floodRiskScore}/100</span></div>
+              <div class="flex justify-between"><span>Flood Risk:</span> <span class="font-bold ${com.floodRiskScore >= 80 ? 'text-pink-400' : 'text-emerald-400'}">${com.floodRiskScore}/100</span></div>
               <div class="flex justify-between"><span>ระดับน้ำรวมปานกลาง:</span> <span class="${com.isFlooded ? "text-rose-400 font-bold" : "text-emerald-400"}">${com.isFlooded ? "น้ำท่วมขัง" : "ปกติ"}</span></div>
               <div class="flex justify-between"><span>ตะแกรงท่อตัน:</span> <span class="${com.blockageFlag ? "text-rose-400 font-bold" : "text-emerald-400"}">${com.blockageFlag ? "อุดตัน" : "ปกติ"}</span></div>
             </div>
@@ -273,7 +273,7 @@ export default function MapDashboard({
             </div>
             <div class="whitespace-normal text-[11px] space-y-1 text-slate-300">
               <div class="flex justify-between"><span>สถานะการเดินเครื่อง:</span> <span class="font-bold ${pump.operationalStatus === "ACTIVE" ? "text-emerald-400" : "text-rose-400"}">${pump.operationalStatus === "ACTIVE" ? "กำลังสูบระบาย" : pump.operationalStatus === "FAILED" ? "ขัดข้อง/ล่มเหลว" : "สแตนด์บาย"}</span></div>
-              <div class="flex justify-between"><span>เครื่องสูบน้ำจม:</span> <span class="${pump.engineFlooded ? "text-red-400 font-bold animate-pulse" : "text-emerald-400"}">${pump.engineFlooded ? "วิกฤต (Engine Flooded)" : "แห้งปกติ"}</span></div>
+              <div class="flex justify-between"><span>เครื่องสูบน้ำจม:</span> <span class="${pump.engineFlooded ? "text-pink-400 font-bold animate-pulse" : "text-emerald-400"}">${pump.engineFlooded ? "วิกฤต (Engine Flooded)" : "แห้งปกติ"}</span></div>
               <div class="flex justify-between"><span>ปั๊มที่เปิดงาน:</span> <span class="text-white">${pump.activePumpCount} / ${pump.totalPumpCount} เครื่อง</span></div>
               <div class="flex justify-between"><span>ความจุเต็มที่:</span> <span class="text-white">${pump.capacityCubicMeterPerSec} ลบ.ม./วิ</span></div>
               <div class="flex justify-between"><span>อัตราสูบจริงหน้างาน:</span> <span class="text-emerald-400 font-mono font-bold">${pump.dischargeRate.toFixed(2)} ลบ.ม./วิ</span></div>
@@ -328,11 +328,11 @@ export default function MapDashboard({
             </div>
             <div class="text-[11px] space-y-1 text-slate-300">
               <div class="flex justify-between"><span>ระดับน้ำ (MSL):</span> <span class="font-mono font-bold font-white">${sens.waterLevelMsl.toFixed(2)} ม.</span></div>
-              <div class="flex justify-between"><span>เกณฑ์วิกฤตตลิ่ง:</span> <span class="font-mono text-red-400">${sens.criticalThresholdMsl.toFixed(2)} ม.</span></div>
+              <div class="flex justify-between"><span>เกณฑ์วิกฤตตลิ่ง:</span> <span class="font-mono text-pink-400">${sens.criticalThresholdMsl.toFixed(2)} ม.</span></div>
               <div class="flex justify-between"><span>สถานะเซ็นเซอร์:</span> <span class="font-bold text-emerald-400">${sens.healthStatus}</span></div>
               <div class="flex justify-between"><span>ปริมาณฝน 24 ชั่วโมง:</span> <span class="text-sky-400 font-bold">${sens.rainfall24h.toFixed(1)} มม.</span></div>
               <div class="flex justify-between"><span>สะสม 5 วัน:</span> <span class="text-blue-400 font-bold">${sens.rainfall120h.toFixed(0)} มม.</span></div>
-              <div class="flex justify-between"><span>สุขภาพแบตเตอรี่:</span> <span class="font-bold ${sens.batteryStatus <= 20 ? 'text-red-400' : 'text-slate-200'}">${sens.batteryStatus}%</span></div>
+              <div class="flex justify-between"><span>สุขภาพแบตเตอรี่:</span> <span class="font-bold ${sens.batteryStatus <= 20 ? 'text-pink-400' : 'text-slate-200'}">${sens.batteryStatus}%</span></div>
             </div>
           </div>
         `;
@@ -351,7 +351,7 @@ export default function MapDashboard({
       shelters.forEach((she) => {
         let colorClass = "bg-teal-500 text-teal-100 border-teal-400";
         if (she.status === "FULL") {
-          colorClass = "bg-red-700 text-white border-red-500";
+          colorClass = "bg-pink-700 text-white border-pink-500";
         } else if (she.status === "NEAR_LIMIT") {
           colorClass = "bg-amber-600 text-amber-100 border-amber-500";
         }
@@ -378,7 +378,7 @@ export default function MapDashboard({
               <h4 class="font-bold text-xs text-slate-100 line-clamp-1">${she.name}</h4>
             </div>
             <div class="text-[11px] space-y-1 text-slate-300">
-              <div class="flex justify-between"><span>สถานะศูนย์พักพิง:</span> <span class="font-bold ${she.status === "FULL" ? "text-red-400" : she.status === "NEAR_LIMIT" ? "text-amber-400" : "text-emerald-400"}">${she.status === "FULL" ? "หนาแน่นเต็มอัตรา" : she.status === "NEAR_LIMIT" ? "จำกัดอย่างยิ่ง" : "ว่างสแตนด์บาย"}</span></div>
+              <div class="flex justify-between"><span>สถานะศูนย์พักพิง:</span> <span class="font-bold ${she.status === "FULL" ? "text-pink-400" : she.status === "NEAR_LIMIT" ? "text-amber-400" : "text-emerald-400"}">${she.status === "FULL" ? "หนาแน่นเต็มอัตรา" : she.status === "NEAR_LIMIT" ? "จำกัดอย่างยิ่ง" : "ว่างสแตนด์บาย"}</span></div>
               <div class="flex justify-between"><span>จำนวนผู้อพยพปัจจุบัน:</span> <span class="text-white font-bold font-mono">${she.currentOccupants} / ${she.maxCapacity} คน</span></div>
               <div class="flex justify-between"><span>สัดส่วนความจุ:</span> <span class="text-slate-100 font-mono">${(she.capacityRatio * 100).toFixed(0)}%</span></div>
               <div class="flex justify-between"><span>โทรติดต่อสายตรง:</span> <span class="text-sky-300 font-mono">${she.contactNumber}</span></div>
@@ -507,12 +507,12 @@ export default function MapDashboard({
               onClick={() => setActiveLayers((prev: any) => ({ ...prev, floodRisk: !prev.floodRisk }))}
               className={`px-2 py-1 rounded-sm flex items-center justify-between border transition-colors ${
                 activeLayers.floodRisk
-                  ? "bg-red-950/40 text-red-300 border-red-800"
+                  ? "bg-pink-950/40 text-pink-300 border-pink-800"
                   : "bg-[#111] text-[#666] border-[#222] hover:text-slate-200"
               }`}
             >
               <span>RESIDENTIAL RISK</span>
-              <div className={`h-1.5 w-1.5 rounded-full ${activeLayers.floodRisk ? "bg-red-400 animate-ping" : "bg-[#222]"}`} />
+              <div className={`h-1.5 w-1.5 rounded-full ${activeLayers.floodRisk ? "bg-pink-400 animate-ping" : "bg-[#222]"}`} />
             </button>
             <button
               onClick={() => setActiveLayers((prev: any) => ({ ...prev, pumps: !prev.pumps }))}
@@ -551,12 +551,12 @@ export default function MapDashboard({
               onClick={() => setActiveLayers((prev: any) => ({ ...prev, sos: !prev.sos }))}
               className={`px-2 py-1.5 rounded-sm flex items-center justify-between border transition-colors uppercase col-span-2 ${
                 activeLayers.sos
-                  ? "bg-red-950/60 text-red-200 border-red-700 shadow-inner"
+                  ? "bg-pink-950/60 text-pink-200 border-pink-700 shadow-inner"
                   : "bg-[#111] text-[#666] border-[#222] hover:text-slate-200"
               }`}
             >
               <span>SOS DISTRESS ALIGNMENT ({soslist.filter(s => s.status !== "SOLVED").length} TICKETS)</span>
-              <span className={`h-2 w-2 rounded-full ${activeLayers.sos ? "bg-red-500 animate-ping" : "bg-[#222]"}`} />
+              <span className={`h-2 w-2 rounded-full ${activeLayers.sos ? "bg-pink-500 animate-ping" : "bg-[#222]"}`} />
             </button>
           </div>
         </div>
@@ -566,8 +566,8 @@ export default function MapDashboard({
           onClick={() => setShowHeatmap(!showHeatmap)}
           className={`px-3 py-1.5 pointer-events-auto rounded-sm border text-[10px] font-mono font-bold flex items-center gap-2 transition-colors shadow-lg ${
             showHeatmap
-              ? "bg-red-600 text-white border-red-500 hover:bg-red-700"
-              : "bg-[#0a0a0a]/95 text-red-400 border-[#222] hover:bg-[#111]"
+              ? "bg-pink-600 text-white border-pink-500 hover:bg-pink-700"
+              : "bg-[#0a0a0a]/95 text-pink-400 border-[#222] hover:bg-[#111]"
           }`}
         >
           <span>🔥</span>
@@ -590,3 +590,4 @@ export default function MapDashboard({
     </div>
   );
 }
+
