@@ -1,0 +1,10 @@
+{
+  "apiKey": "PLACEHOLDER_API_KEY",
+  "authDomain": "placeholder-project.firebaseapp.com",
+  "projectId": "placeholder-project",
+  "storageBucket": "placeholder-project.appspot.com",
+  "messagingSenderId": "000000000000",
+  "appId": "1:000000000000:web:0000000000000000000000",
+  "measurementId": "G-PLACEHOLDER",
+  "firestoreDatabaseId": "(default)"
+}

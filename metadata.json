@@ -1,0 +1,8 @@
+{
+  "name": "Flood Disaster Management System",
+  "description": "An interactive, tactical GIS Dashboard for flood disaster operations, real-time telemetry sensor tracking, pump station routing, and sandboxed emergency simulations in Yala, Thailand.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
