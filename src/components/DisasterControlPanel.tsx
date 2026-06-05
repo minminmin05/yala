@@ -47,7 +47,7 @@ export default function DisasterControlPanel({
       {/* 24-Hour Operations Ticker */}
       <div className="bg-[#0a0a0a] border border-[#222] rounded-sm p-3 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="h-1.5 w-1.5 rounded-full bg-pink-500 animate-pulse" />
+          <div className="h-1.5 w-1.5 rounded-full bg-red-500 animate-pulse" />
           <span className="text-[10px] font-mono font-bold tracking-widest text-[#888] uppercase">
             YALA FLOOD DISPATCH COMMAND DECK
           </span>
@@ -103,7 +103,7 @@ export default function DisasterControlPanel({
           </div>
           <div className="text-[9px] text-[#666] border-t border-[#222] mt-2 pt-1 flex justify-between font-mono">
             <span>FAIL_COMP:</span>
-            <span className="font-bold text-pink-500 animate-pulse">{failedPumps} UNITS ({floodedEngines} FLOODED)</span>
+            <span className="font-bold text-red-500 animate-pulse">{failedPumps} UNITS ({floodedEngines} FLOODED)</span>
           </div>
         </div>
 
@@ -126,24 +126,24 @@ export default function DisasterControlPanel({
 
       {/* Extreme Alarms & Local Critical Points */}
       <div className="bg-[#0a0a0a] border border-[#222] rounded-sm p-3.5">
-        <h4 className="text-[10px] font-bold font-mono text-pink-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#222] pb-2">
-          <ShieldAlert className="h-3.5 w-3.5 text-pink-500 animate-bounce" />
+        <h4 className="text-[10px] font-bold font-mono text-red-400 uppercase tracking-wider mb-2.5 flex items-center gap-1.5 border-b border-[#222] pb-2">
+          <ShieldAlert className="h-3.5 w-3.5 text-red-500 animate-bounce" />
           CRITICAL SECTOR ENCOUNTER WARNINGS
         </h4>
         <div className="space-y-2 max-h-[140px] overflow-y-auto pr-1">
           {/* Critical Pump Failure Display */}
-          <div className="p-2.5 rounded-sm bg-[#180a0a] border border-pink-950 flex items-center justify-between text-xs transition-colors hover:bg-[#200f0f]">
+          <div className="p-2.5 rounded-sm bg-[#180a0a] border border-red-950 flex items-center justify-between text-xs transition-colors hover:bg-[#200f0f]">
             <div className="flex flex-col pr-3">
-              <span className="font-bold text-pink-200 font-mono text-[11px] flex items-center gap-1">
+              <span className="font-bold text-red-200 font-mono text-[11px] flex items-center gap-1">
                  ⚠️ SECTOR YALA_HOSP_GEN PUMP_FAIL
               </span>
-              <p className="text-[10px] text-pink-400 mt-0.5 leading-normal font-sans">
+              <p className="text-[10px] text-red-400 mt-0.5 leading-normal font-sans">
                 Station power grid failure due to extreme local torrent runoff. Mechanical discharge capacity dropped to 0 m³/s. River overflow expected in 30m.
               </p>
             </div>
             <button
               onClick={() => onSelectCommunityByCoords([6.5348, 101.2699], pumps[3], "pump")}
-              className="px-2 py-1 rounded-sm bg-pink-950 text-pink-300 font-mono text-[9px] uppercase font-bold shrink-0 hover:bg-[#401111] border border-pink-900/50"
+              className="px-2 py-1 rounded-sm bg-red-950 text-red-300 font-mono text-[9px] uppercase font-bold shrink-0 hover:bg-[#401111] border border-red-900/50"
             >
               LOCATE
             </button>
@@ -173,10 +173,10 @@ export default function DisasterControlPanel({
       <div className="bg-[#0a0a0a] border border-[#222] rounded-sm p-3.5 shadow-lg">
         <div className="flex items-center justify-between border-b border-[#222] pb-2 mb-3">
           <h4 className="text-[10px] font-bold font-mono text-sky-400 uppercase tracking-widest flex items-center gap-1.5">
-            <PhoneCall className="h-3.5 w-3.5 text-pink-500 animate-pulse" />
+            <PhoneCall className="h-3.5 w-3.5 text-red-500 animate-pulse" />
             DISPATCH QUEUE (ACTIVE SOS ALARMS)
           </h4>
-          <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-sm bg-pink-950/50 text-pink-300 border border-pink-900/40 animate-pulse">
+          <span className="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded-sm bg-red-950/50 text-red-300 border border-red-900/40 animate-pulse">
             QUEUED: {pendingSOS.length}
           </span>
         </div>
@@ -189,7 +189,7 @@ export default function DisasterControlPanel({
               </div>
             ) : (
               sosList.map((sos) => {
-                let badgeClass = "bg-[#180a0a] text-pink-400 border-pink-900/60";
+                let badgeClass = "bg-[#180a0a] text-red-400 border-red-900/60";
                 let statusLabel = "PENDING_DISPATCH";
 
                 if (sos.status === "DISPATCHED") {
@@ -220,7 +220,7 @@ export default function DisasterControlPanel({
                         "{sos.message}"
                       </p>
                       <div className="flex justify-between text-[9px] font-mono text-[#666] mt-2">
-                        <span>Vulnerable qty: <strong className="text-pink-400">{sos.vulnerableCount} counts</strong></span>
+                        <span>Vulnerable qty: <strong className="text-red-400">{sos.vulnerableCount} counts</strong></span>
                         <span>Tel: <strong className="text-[#aaa]">{sos.senderPhone}</strong></span>
                       </div>
                     </div>
@@ -254,7 +254,7 @@ export default function DisasterControlPanel({
                       {sos.status === "SOLVED" && (
                         <button
                           onClick={() => onDeleteSOS(sos.id)}
-                          className="px-2.5 py-1 rounded-sm bg-pink-950 text-pink-300 font-mono font-bold text-[9px] uppercase hover:bg-pink-900"
+                          className="px-2.5 py-1 rounded-sm bg-red-950 text-red-300 font-mono font-bold text-[9px] uppercase hover:bg-red-900"
                         >
                           DELETE LOG
                         </button>
@@ -270,4 +270,3 @@ export default function DisasterControlPanel({
     </div>
   );
 }
-
